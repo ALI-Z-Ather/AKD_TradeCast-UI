@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tradecast.controllers.MyWatchesController">
+    <center>
+        <TabPane side="TOP" tabClosingPolicy="UNAVAILABLE" styleClass="nested-profile-tabs">
+            <Tab text="1st Profile" closable="false">
+                <content>
+                    <BorderPane styleClass="profile-tab-root">
+                        <top>
+                            <VBox spacing="6" styleClass="watches-toolbar">
+                                <padding>
+                                    <Insets top="6" right="8" bottom="6" left="8"/>
+                                </padding>
+                                <HBox spacing="8" alignment="CENTER_LEFT">
+                                    <Label text="Scrip Browse" style="-fx-font-weight: bold;"/>
+                                    <Button fx:id="scripBrowseButton" text="Browse…" onAction="#onScripBrowse"
+                                            styleClass="button-toolbar"/>
+                                    <Label text="Scrip / search:"/>
+                                    <TextField fx:id="scripSearchField" promptText="Symbol e.g. OGDC" prefColumnCount="14"
+                                               onAction="#onScripSearchCommitted"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Button fx:id="saveProfileButton" text="Save Profile" onAction="#onSaveProfile"
+                                            styleClass="button-toolbar"/>
+                                </HBox>
+                                <HBox spacing="8" alignment="CENTER_LEFT">
+                                    <Label text="Selected:" style="-fx-font-weight: bold;"/>
+                                    <Label fx:id="selectedScripLabel" text="—" styleClass="selected-scrip-label"/>
+                                </HBox>
+                                <Separator/>
+                            </VBox>
+                        </top>
+                        <center>
+                            <TableView fx:id="marketTable" styleClass="market-table"/>
+                        </center>
+                    </BorderPane>
+                </content>
+            </Tab>
+            <Tab text="2nd Profile" closable="false">
+                <content>
+                    <BorderPane styleClass="tab-workspace">
+                        <center>
+                            <Label text="2nd Profile — watchlist and grid will be configured here (mock)."
+                                   wrapText="true" styleClass="placeholder-label"
+                                   BorderPane.alignment="CENTER">
+                                <BorderPane.margin>
+                                    <Insets top="16" right="16" bottom="16" left="16"/>
+                                </BorderPane.margin>
+                            </Label>
+                        </center>
+                    </BorderPane>
+                </content>
+            </Tab>
+            <Tab text="3rd Profile" closable="false">
+                <content>
+                    <BorderPane styleClass="tab-workspace">
+                        <center>
+                            <Label text="3rd Profile — watchlist and grid will be configured here (mock)."
+                                   wrapText="true" styleClass="placeholder-label"
+                                   BorderPane.alignment="CENTER">
+                                <BorderPane.margin>
+                                    <Insets top="16" right="16" bottom="16" left="16"/>
+                                </BorderPane.margin>
+                            </Label>
+                        </center>
+                    </BorderPane>
+                </content>
+            </Tab>
+            <Tab text="Sector Watch" closable="false">
+                <content>
+                    <BorderPane styleClass="tab-workspace">
+                        <center>
+                            <Label text="Sector Watch — sector indices and members will appear here (mock)."
+                                   wrapText="true" styleClass="placeholder-label"
+                                   BorderPane.alignment="CENTER">
+                                <BorderPane.margin>
+                                    <Insets top="16" right="16" bottom="16" left="16"/>
+                                </BorderPane.margin>
+                            </Label>
+                        </center>
+                    </BorderPane>
+                </content>
+            </Tab>
+            <Tab text="Portfolio Watch" closable="false">
+                <content>
+                    <fx:include source="PortfolioWatchView.fxml"/>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

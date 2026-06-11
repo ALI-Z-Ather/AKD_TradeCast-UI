@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="cash-management-root">
+    <center>
+        <TabPane side="TOP" tabClosingPolicy="UNAVAILABLE" styleClass="nested-profile-tabs">
+            <Tab text="Cash Withdrawal Statement" closable="false">
+                <content>
+                    <fx:include source="CashWithdrawalStatementView.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Cash Withdrawal Request" closable="false">
+                <content>
+                    <fx:include source="CashWithdrawalRequestView.fxml"/>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

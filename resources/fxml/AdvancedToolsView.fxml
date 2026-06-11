@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tradecast.controllers.AdvancedToolsController"
+            styleClass="tab-workspace">
+    <padding>
+        <Insets top="6" right="6" bottom="6" left="6"/>
+    </padding>
+
+    <top>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="portfolio-summary-strip">
+            <padding>
+                <Insets top="4" right="6" bottom="4" left="6"/>
+            </padding>
+            <Label text="Advanced Tools" styleClass="side-panel-title"/>
+            <Label text="(Mock terminal tools only — no live feed)" styleClass="hint-label"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane fx:id="advancedSplitPane" orientation="VERTICAL" dividerPositions="0.44">
+            <SplitPane fx:id="depthSplitPane" dividerPositions="0.50">
+                <VBox spacing="4" styleClass="inset-panel">
+                    <Label text="Market Depth By Order" styleClass="side-panel-title"/>
+                    <TableView fx:id="depthByOrderTable" styleClass="market-table advanced-depth-table">
+                        <columns>
+                            <TableColumn fx:id="orderVolumeColumn" text="Volume" prefWidth="75"/>
+                            <TableColumn fx:id="orderPriceColumn" text="Price" prefWidth="75"/>
+                            <TableColumn fx:id="orderFlagColumn" text="Flag" prefWidth="62"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+                <VBox spacing="4" styleClass="inset-panel">
+                    <Label text="Market Depth By Price" styleClass="side-panel-title"/>
+                    <TableView fx:id="depthByPriceTable" styleClass="market-table advanced-depth-table">
+                        <columns>
+                            <TableColumn fx:id="priceVolumeColumn" text="Volume" prefWidth="75"/>
+                            <TableColumn fx:id="pricePriceColumn" text="Price" prefWidth="75"/>
+                            <TableColumn fx:id="priceFlagColumn" text="Flag" prefWidth="62"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </SplitPane>
+
+            <VBox spacing="4" styleClass="inset-panel">
+                <Label text="Message Window" styleClass="side-panel-title"/>
+                <TabPane fx:id="messageTabPane" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Activity" closable="false">
+                            <content>
+                                <ListView fx:id="activityMessagesList" styleClass="terminal-list"/>
+                            </content>
+                        </Tab>
+                        <Tab text="Orders" closable="false">
+                            <content>
+                                <ListView fx:id="orderMessagesList" styleClass="terminal-list"/>
+                            </content>
+                        </Tab>
+                        <Tab text="Announcements" closable="false">
+                            <content>
+                                <ListView fx:id="announcementMessagesList" styleClass="terminal-list"/>
+                            </content>
+                        </Tab>
+                        <Tab text="News" closable="false">
+                            <content>
+                                <ListView fx:id="newsMessagesList" styleClass="terminal-list"/>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

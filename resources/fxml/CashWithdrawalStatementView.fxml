@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tradecast.controllers.CashWithdrawalStatementController"
+            styleClass="order-history-root">
+    <top>
+        <VBox spacing="0">
+            <HBox styleClass="internal-panel-title" alignment="CENTER_LEFT" spacing="8">
+                <padding>
+                    <Insets top="4" right="8" bottom="4" left="8"/>
+                </padding>
+                <Label text="Cash Withdrawal Statement" styleClass="internal-panel-title-text"/>
+            </HBox>
+            <VBox spacing="6" styleClass="order-history-filter-strip">
+                <padding>
+                    <Insets top="6" right="8" bottom="6" left="8"/>
+                </padding>
+                <HBox spacing="6" alignment="CENTER_LEFT" styleClass="inset-panel">
+                    <padding>
+                        <Insets top="6" right="6" bottom="6" left="6"/>
+                    </padding>
+                    <Label text="Account"/>
+                    <ComboBox fx:id="accountCombo" prefWidth="100"/>
+                    <Label text="Name"/>
+                    <TextField fx:id="nameField" promptText="Client name" prefColumnCount="14"/>
+                    <Label text="PIN"/>
+                    <PasswordField fx:id="pinField" promptText="4 digits" prefColumnCount="6"/>
+                    <Label text="Start"/>
+                    <DatePicker fx:id="startDatePicker" prefWidth="118"/>
+                    <Label text="End"/>
+                    <DatePicker fx:id="endDatePicker" prefWidth="118"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Get" defaultButton="true" styleClass="button-toolbar" onAction="#onGet"/>
+                </HBox>
+                <Separator/>
+            </VBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="statementTable" styleClass="market-table order-history-table"/>
+    </center>
+    <bottom>
+        <HBox styleClass="order-history-status" alignment="CENTER_LEFT" spacing="16">
+            <padding>
+                <Insets top="3" right="10" bottom="3" left="10"/>
+            </padding>
+            <Label fx:id="recordsFoundLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="asOfDateLabel"/>
+        </HBox>
+    </bottom>
+</BorderPane>

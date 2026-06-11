@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tradecast.controllers.DashboardShellController">
+    <top>
+        <VBox spacing="0">
+            <MenuBar styleClass="menubar-legacy">
+                <Menu text="File">
+                    <MenuItem text="Exit" onAction="#onFileExit"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Logout (mock)…" disable="true"/>
+                </Menu>
+                <Menu text="View"/>
+                <Menu text="Order">
+                    <MenuItem fx:id="orderHistoryMenuItem" text="Order History" onAction="#onMenuOrderHistory"/>
+                </Menu>
+                <Menu text="Monitor"/>
+                <Menu text="Inquiry"/>
+                <Menu text="Services"/>
+                <Menu text="Tools"/>
+                <Menu text="Tickers"/>
+                <Menu text="Themes"/>
+                <Menu text="AKD"/>
+                <Menu text="Help"/>
+            </MenuBar>
+            <ToolBar styleClass="dashboard-toolbar">
+                <Button text="New" styleClass="button-toolbar" onAction="#onToolbarNotImplemented"/>
+                <Button text="Open" styleClass="button-toolbar" onAction="#onToolbarNotImplemented"/>
+                <Button text="Save" styleClass="button-toolbar" onAction="#onToolbarNotImplemented"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Refresh" styleClass="button-toolbar" onAction="#onToolbarNotImplemented"/>
+                <Button text="Print" styleClass="button-toolbar" onAction="#onToolbarNotImplemented"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="F12 Watches" styleClass="button-toolbar" onAction="#onToolbarNotImplemented"/>
+                <Pane maxWidth="Infinity" minWidth="24" HBox.hgrow="ALWAYS"/>
+                <Button text="Restore Default" styleClass="button-toolbar" onAction="#onRestoreDefaultLayout"/>
+            </ToolBar>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane fx:id="mainSplitPane" dividerPositions="0.76" focusTraversable="false">
+            <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" side="TOP">
+                <Tab text="My Watches" closable="false">
+                    <content>
+                        <fx:include source="MyWatchesView.fxml"/>
+                    </content>
+                </Tab>
+                <Tab text="Trade Log" closable="false">
+                    <content>
+                        <BorderPane styleClass="tab-workspace">
+                            <center>
+                                <Label text="Trade Log — execution history grid will be added here."
+                                       wrapText="true" styleClass="placeholder-label"
+                                       BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets top="16" right="16" bottom="16" left="16"/>
+                                    </BorderPane.margin>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab text="Outstanding Log" closable="false">
+                    <content>
+                        <BorderPane styleClass="tab-workspace">
+                            <center>
+                                <Label text="Outstanding Log — pending orders view will be added here."
+                                       wrapText="true" styleClass="placeholder-label"
+                                       BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets top="16" right="16" bottom="16" left="16"/>
+                                    </BorderPane.margin>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="orderHistoryTab" text="Order History" closable="false">
+                    <content>
+                        <fx:include source="OrderHistoryView.fxml"/>
+                    </content>
+                </Tab>
+                <Tab text="Cash Management" closable="false">
+                    <content>
+                        <fx:include source="CashManagementView.fxml"/>
+                    </content>
+                </Tab>
+                <Tab text="Advanced Tools" closable="false">
+                    <content>
+                        <fx:include fx:id="advancedToolsView" source="AdvancedToolsView.fxml"/>
+                    </content>
+                </Tab>
+                <Tab text="Activity Log" closable="false">
+                    <content>
+                        <BorderPane styleClass="tab-workspace">
+                            <center>
+                                <Label text="Activity Log — session messages will be added here."
+                                       wrapText="true" styleClass="placeholder-label"
+                                       BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets top="16" right="16" bottom="16" left="16"/>
+                                    </BorderPane.margin>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+            </TabPane>
+            <VBox styleClass="side-panel" spacing="6" minWidth="160" prefWidth="200" maxWidth="280">
+                <padding>
+                    <Insets top="8" right="8" bottom="8" left="8"/>
+                </padding>
+                <Label text="Depth / messages" styleClass="side-panel-title"/>
+                <Label text="Quick monitor strip for compact depth and terminal messages."
+                       wrapText="true" styleClass="placeholder-label"/>
+                <Separator/>
+                <Label text="(No live data in this prototype.)" styleClass="hint-label" wrapText="true"/>
+                <Region VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </SplitPane>
+    </center>
+    <bottom>
+        <HBox styleClass="status-bar" alignment="CENTER_LEFT" spacing="12">
+            <padding>
+                <Insets top="3" right="8" bottom="3" left="8"/>
+            </padding>
+            <Label fx:id="statusConnectionLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusClockLabel"/>
+        </HBox>
+    </bottom>
+</BorderPane>

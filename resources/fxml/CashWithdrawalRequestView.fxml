@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tradecast.controllers.CashWithdrawalRequestController"
+            styleClass="order-history-root">
+    <fx:define>
+        <ToggleGroup fx:id="withdrawalModeGroup"/>
+    </fx:define>
+    <top>
+        <HBox styleClass="internal-panel-title" alignment="CENTER_LEFT" spacing="8">
+            <padding>
+                <Insets top="4" right="8" bottom="4" left="8"/>
+            </padding>
+            <Label text="Cash Withdrawal Request" styleClass="internal-panel-title-text"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10" styleClass="cash-request-form">
+            <padding>
+                <Insets top="10" right="12" bottom="12" left="12"/>
+            </padding>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Account No" minWidth="110"/>
+                <ComboBox fx:id="accountCombo" prefWidth="140"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="PIN" minWidth="110"/>
+                <PasswordField fx:id="pinField" promptText="4 digits" prefColumnCount="8"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Available Amount" minWidth="110"/>
+                <TextField fx:id="availableAmountField" styleClass="summary-field" editable="false"
+                           focusTraversable="false" prefColumnCount="16"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Withdrawal Amount" minWidth="110"/>
+                <TextField fx:id="withdrawalAmountField" promptText="0.00" prefColumnCount="16"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Remaining Amount" minWidth="110"/>
+                <TextField fx:id="remainingAmountField" styleClass="summary-field" editable="false"
+                           focusTraversable="false" prefColumnCount="16"/>
+            </HBox>
+            <Separator/>
+            <Label text="Withdrawal mode" style="-fx-font-weight: bold;"/>
+            <VBox spacing="4">
+                <RadioButton fx:id="chequeDeliveryRadio" text="Cheque Delivery" toggleGroup="$withdrawalModeGroup"/>
+                <RadioButton fx:id="chequePickupRadio" text="Cheque Pickup" toggleGroup="$withdrawalModeGroup"/>
+                <RadioButton fx:id="onlineTransferRadio" text="Online Fund Transfer" toggleGroup="$withdrawalModeGroup"/>
+            </VBox>
+            <Label text="Comments" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="commentsArea" promptText="Optional comments…" prefRowCount="4" wrapText="true"/>
+            <HBox spacing="8">
+                <Button text="Submit" defaultButton="true" styleClass="button-toolbar" onAction="#onSubmit"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

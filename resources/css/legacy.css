@@ -1,0 +1,389 @@
+/* Legacy Windows XP / classic Swing-style chrome. No rounded cards or Material look. */
+
+.root {
+    -fx-font-family: "Tahoma", "Segoe UI", sans-serif;
+    -fx-font-size: 11px;
+    -fx-background-color: #ece9d8;
+    -fx-text-fill: #000000;
+}
+
+/* Simulated blue title strip (OS title bar is not styleable in JavaFX). */
+.title-bar {
+    -fx-background-color: linear-gradient(to bottom, #0a246a 0%, #316ac5 100%);
+    -fx-padding: 4 6 4 6;
+    -fx-border-color: #003c74;
+    -fx-border-width: 0 0 1 0;
+}
+.title-bar .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+.branding-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.branding-sub {
+    -fx-font-size: 11px;
+    -fx-text-fill: #e0e8ff;
+}
+.title-bar-note {
+    -fx-text-fill: #dce6ff;
+    -fx-font-size: 11px;
+}
+.hint-label {
+    -fx-text-fill: #404040;
+    -fx-font-size: 10px;
+}
+
+/* Single-character password challenge boxes */
+.password-char-box {
+    -fx-pref-width: 28px;
+    -fx-max-width: 32px;
+    -fx-alignment: center;
+    -fx-font-size: 12px;
+}
+.password-char-active {
+    -fx-background-color: #ffffff;
+}
+.password-char-disabled {
+    -fx-opacity: 1;
+}
+.password-char-box:disabled {
+    -fx-control-inner-background: #dcdcdc;
+    -fx-background-color: #e4e4e4;
+    -fx-border-color: #b0b0b0;
+    -fx-text-fill: #808080;
+}
+
+.panel {
+    -fx-background-color: #ece9d8;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 1px;
+    -fx-padding: 6;
+}
+
+.inset-panel {
+    -fx-background-color: #fbfbf9;
+    -fx-border-color: #919b9c #ffffff #ffffff #919b9c;
+    -fx-border-width: 1px;
+    -fx-padding: 6;
+}
+
+.label {
+    -fx-text-fill: #000000;
+}
+
+.label-error {
+    -fx-text-fill: #cc0000;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #7f9db9;
+    -fx-border-width: 1px;
+    -fx-padding: 2 4 2 4;
+    -fx-prompt-text-fill: #808080;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #ecebe5 100%);
+    -fx-border-color: #003c74;
+    -fx-border-width: 1px;
+    -fx-background-insets: 0;
+    -fx-padding: 2 10 2 10;
+    -fx-min-height: 22px;
+    -fx-font-size: 11px;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #eaf6fd 100%);
+}
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #ecebe5 0%, #ffffff 100%);
+}
+
+.button-default {
+    -fx-font-weight: bold;
+}
+
+.hyperlink {
+    -fx-font-size: 11px;
+    -fx-border-width: 0;
+    -fx-underline: true;
+}
+.hyperlink:visited {
+    -fx-text-fill: #000080;
+}
+
+.separator .line {
+    -fx-border-color: #919b9c transparent transparent #ffffff;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Dense tables */
+.table-view {
+    -fx-font-size: 11px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 1px;
+}
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #ecebe5 100%);
+    -fx-border-color: #919b9c #ffffff #ffffff #919b9c;
+    -fx-border-width: 1px;
+}
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-padding: 2 4 2 4;
+}
+.table-row-cell {
+    -fx-cell-size: 18px;
+}
+.table-row-cell:selected {
+    -fx-background-color: #316ac5;
+    -fx-text-background-color: #ffffff;
+}
+
+/* Tabs */
+.tab-pane {
+    -fx-tab-min-height: 20px;
+    -fx-tab-min-width: 48px;
+}
+.tab-pane > .tab-header-area {
+    -fx-padding: 0 0 0 0;
+}
+.tab {
+    -fx-font-size: 11px;
+    -fx-background-insets: 0 1 0 1;
+    -fx-background-color: #ece9d8;
+    -fx-border-color: #919b9c #919b9c #919b9c #919b9c;
+}
+.tab:selected {
+    -fx-background-color: #fbfbf9;
+}
+
+/* Toolbar strip */
+.tool-bar {
+    -fx-background-color: #ece9d8;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 2 4 2 4;
+}
+
+.titled-pane {
+    -fx-text-fill: #000000;
+}
+.titled-pane > .title {
+    -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #ecebe5 100%);
+    -fx-border-color: #919b9c;
+    -fx-border-width: 1px;
+    -fx-padding: 2 4 2 4;
+}
+
+.scroll-pane {
+    -fx-background-color: #ece9d8;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 1px;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: #fbfbf9;
+}
+
+.combo-box-base {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #7f9db9;
+    -fx-border-width: 1px;
+    -fx-font-size: 11px;
+}
+
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #7f9db9;
+    -fx-border-width: 1px;
+    -fx-font-size: 11px;
+}
+
+.radio-button, .check-box {
+    -fx-font-size: 11px;
+}
+
+/* ----- Main dashboard shell ----- */
+
+.menubar-legacy {
+    -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #ecebe5 100%);
+    -fx-border-color: #919b9c;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 11px;
+}
+
+.dashboard-toolbar {
+    -fx-background-color: #ece9d8;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 0 0 1 0;
+    -fx-spacing: 4;
+    -fx-padding: 2 6 2 6;
+}
+
+.button-toolbar {
+    -fx-padding: 1 6 1 6;
+    -fx-min-height: 20px;
+    -fx-max-height: 22px;
+    -fx-font-size: 11px;
+}
+
+.status-bar {
+    -fx-background-color: linear-gradient(to bottom, #ecebe5 0%, #dcd9d1 100%);
+    -fx-border-color: #ffffff #919b9c #919b9c #ffffff;
+    -fx-border-width: 1px 0 0 0;
+    -fx-font-size: 11px;
+}
+
+.tab-workspace {
+    -fx-background-color: #fbfbf9;
+}
+
+.placeholder-label {
+    -fx-text-fill: #505050;
+    -fx-font-size: 11px;
+}
+
+.side-panel {
+    -fx-background-color: #ece9d8;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 0 0 0 1;
+}
+
+.side-panel-title {
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-background-color: #c0c0c0;
+    -fx-padding: 0 2 0 2;
+}
+
+/* My Watches — nested profile tabs + dense market grid */
+.nested-profile-tabs {
+    -fx-font-size: 11px;
+}
+.nested-profile-tabs .tab-header-area {
+    -fx-padding: 0 0 0 4;
+}
+.watches-toolbar {
+    -fx-background-color: #ece9d8;
+}
+.selected-scrip-label {
+    -fx-text-fill: #0a246a;
+    -fx-font-weight: bold;
+}
+
+.market-table {
+    -fx-font-size: 10px;
+}
+.market-table .column-header .label {
+    -fx-font-size: 10px;
+    -fx-padding: 1 3 1 3;
+}
+.market-table .table-row-cell {
+    -fx-cell-size: 17px;
+}
+.market-table .table-cell {
+    -fx-padding: 0 3 0 3;
+}
+
+.table-trade-button {
+    -fx-font-size: 9px;
+    -fx-padding: 0 4 0 4;
+    -fx-min-height: 16px;
+    -fx-max-height: 18px;
+}
+
+.profile-tab-root {
+    -fx-background-color: #fbfbf9;
+}
+
+/* Portfolio Watch summary strip */
+.portfolio-summary-strip {
+    -fx-background-color: #ece9d8;
+}
+.summary-caption {
+    -fx-font-size: 10px;
+    -fx-text-fill: #303030;
+}
+.summary-field {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-control-inner-background: #f4f4f0;
+    -fx-background-color: #f4f4f0;
+    -fx-border-color: #7f9db9;
+    -fx-border-width: 1px;
+    -fx-padding: 2 4 2 4;
+}
+
+/* .portfolio-table: row sizing comes from .market-table when both style classes are set */
+
+/* Order History internal panel */
+.order-history-root {
+    -fx-background-color: #fbfbf9;
+}
+.internal-panel-title {
+    -fx-background-color: linear-gradient(to bottom, #0a246a 0%, #316ac5 100%);
+    -fx-border-color: #003c74;
+    -fx-border-width: 0 0 1 0;
+}
+.internal-panel-title-text {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.toolbar-icon-button {
+    -fx-font-size: 9px;
+    -fx-padding: 1 4 1 4;
+    -fx-min-height: 18px;
+    -fx-max-height: 20px;
+}
+.order-history-filter-strip {
+    -fx-background-color: #ece9d8;
+}
+.order-history-status {
+    -fx-background-color: linear-gradient(to bottom, #ecebe5 0%, #dcd9d1 100%);
+    -fx-border-color: #919b9c #ffffff #ffffff #919b9c;
+    -fx-border-width: 1px 0 0 0;
+    -fx-font-size: 11px;
+}
+.order-history-table {
+    -fx-table-header-border-color: #919b9c;
+}
+
+.cash-management-root {
+    -fx-background-color: #fbfbf9;
+}
+.cash-request-form {
+    -fx-background-color: #ece9d8;
+}
+
+/* Advanced Tools */
+.advanced-depth-table .table-row-cell {
+    -fx-cell-size: 16px;
+}
+.advanced-depth-table .table-cell {
+    -fx-padding: 0 3 0 3;
+}
+.terminal-list {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #919b9c;
+    -fx-border-width: 1px;
+    -fx-font-size: 10px;
+}
+.terminal-list .list-cell {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 10px;
+    -fx-padding: 1 4 1 4;
+    -fx-background-color: #ffffff;
+}
+.terminal-list .list-cell:filled:selected,
+.terminal-list .list-cell:filled:selected:focused {
+    -fx-background-color: #316ac5;
+    -fx-text-fill: #ffffff;
+}
